@@ -1,0 +1,2 @@
+rootProject.name='THMDailyMealTracker'
+include ':app'
