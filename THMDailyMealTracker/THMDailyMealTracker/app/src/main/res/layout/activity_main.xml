@@ -6,82 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="177dp"
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="336dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="172dp"
-        android:text="SUBMIT"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSend" />
+
+    <TextView
+        android:id="@+id/txtSend3"
+        android:layout_width="280dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="382dp"
+        android:text="Choose your Breakfast type :"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtSend"
+        app:layout_constraintTop_toBottomOf="@+id/txtSend2" />
+
+    <EditText
+        android:id="@+id/txtSend2"
+        android:layout_width="249dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="77dp"
+        android:ems="10"
+        android:hint="Enter your name :"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/txtSend3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtSend"
-        android:layout_width="0dp"
+        android:layout_width="249dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="17dp"
         android:ems="10"
         android:hint="Enter your Breakfast hour :"
         android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/spinner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSend2" />
-
-    <EditText
-        android:id="@+id/txtSend2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="22dp"
-        android:ems="10"
-        android:hint="Enter your name :"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtSend"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtSend3"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="29dp"
-        android:text="Choose your Breakfast type :"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSend" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="0dp"
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="171dp"
         android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:layout_marginBottom="59dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        android:layout_marginBottom="281dp"
+        android:text="SUBMIT"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSend" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

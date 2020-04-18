@@ -5,10 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -38,21 +35,42 @@ class MainActivity : AppCompatActivity() {
         txtsend2.setText(preferences.getString ("name", ""))
 
         btngo.setOnClickListener(View.OnClickListener {
-            //save preferences
-            val editor = preferences.edit ()
-            editor.putString ("hour", txtsend.text.toString ())
-            editor.putString("name", txtsend2.text.toString())
-            editor.commit ()
 
-            //Intent is used to send data between activities
-            val intent = Intent(this, Main2Activity::class.java)
-            //putExtra sets value to name SendStuff (Could be called whatever you want
-            intent.putExtra("sendHour",txtsend.text.toString())
-            intent.putExtra("sendName",txtSend2.text.toString())
-            intent.putExtra("sendSpinner",spinner.selectedItem.toString())
-            //Go to second activity
-            startActivity(intent)
+            //data validation with toast
+            hideKeyboard()
+            if(txtsend2.text.toString() == "")
+            {
+                Toast.makeText(this, "Please fill in the Name.", Toast.LENGTH_SHORT).show()
+                txtsend2.requestFocus()
+            }
+            else if(txtsend.text.toString() == "")
+            {
+                Toast.makeText(this, "Please fill in the Hour.", Toast.LENGTH_SHORT).show()
+                txtsend.requestFocus()
+            }
+            else if(txtsend.text.toString().toInt() < 1 || txtsend.text.toString().toInt() > 12)
+            {
+                Toast.makeText(this, "Invalid hour... must be an integer between 1 and 12", Toast.LENGTH_SHORT).show()
+                txtsend.setText("")
+                txtsend.requestFocus()
+            }
+            else
+            {
+                //save preferences
+                val editor = preferences.edit()
+                editor.putString("hour", txtsend.text.toString())
+                editor.putString("name", txtsend2.text.toString())
+                editor.commit()
 
+                //Intent is used to send data between activities
+                val intent = Intent(this, Main2Activity::class.java)
+                //putExtra sets value to name SendStuff (Could be called whatever you want
+                intent.putExtra("sendHour", txtsend.text.toString())
+                intent.putExtra("sendName", txtSend2.text.toString())
+                intent.putExtra("sendSpinner", spinner.selectedItem.toString())
+                //Go to second activity
+                startActivity(intent)
+            }
         })
 
         //Fire hidekeyboard when user taps outside any text object
