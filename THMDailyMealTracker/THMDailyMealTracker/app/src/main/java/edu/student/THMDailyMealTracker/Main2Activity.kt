@@ -59,9 +59,7 @@ class Main2Activity : AppCompatActivity() {
         else
         {
             //set title
-            val sdf = SimpleDateFormat("dd/M/yyyy")
-            val currentDate = sdf.format(Date())
-            menuTitle.text = "Hello " + name + "\nHere is your THM Meal Schedule for: ${currentDate}\n\n"
+            menuTitle.text = "Hello " + name + "\nHere is your THM Meal Schedule for: ${getFormattedDate()}\n\n"
 
             //set breakfast row
             breakfastTime.text = hour.toString()
@@ -112,5 +110,10 @@ class Main2Activity : AppCompatActivity() {
         }
 
 
+    }
+
+    fun getFormattedDate(): String {
+        val sdf = SimpleDateFormat("dd/M/yyyy")
+        return sdf.format(Date())
     }
 }
