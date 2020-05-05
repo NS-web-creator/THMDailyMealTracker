@@ -1,17 +1,22 @@
 package edu.student.THMDailyMealTracker
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.ThreadLocalRandom
 
 class Main2Activity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
@@ -90,6 +95,15 @@ class Main2Activity : AppCompatActivity() {
             this.finish()
         })
 
+        btnSave.setOnClickListener({
+            //make array of motivational messages
+            var messages = arrayOf("You can do it!",
+                                    "Life doesn't get easier, you get stronger!",
+                                    "If you want to fly, give up everything that weighs you down!",
+                                    "Your attitude determines your direction!")
+            Toast.makeText(this, messages[ThreadLocalRandom.current().nextInt(0, messages.size)], Toast.LENGTH_SHORT).show()
+        })
+
         //Fire hidekeyboard when user taps outside any text object
 //Place below code right before last right bracket in function onCreate
         findViewById<View>(android.R.id.content).setOnTouchListener { _, event ->
@@ -113,7 +127,8 @@ class Main2Activity : AppCompatActivity() {
     }
 
     fun getFormattedDate(): String {
-        val sdf = SimpleDateFormat("dd/M/yyyy")
+        val sdf = SimpleDateFormat("M/dd/yyyy")
         return sdf.format(Date())
     }
 }
+
